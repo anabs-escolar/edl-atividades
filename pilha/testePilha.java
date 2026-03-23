@@ -20,7 +20,7 @@ public class testePilha {
 
 		System.out.println("inserindo");
 		for(int f=0; f<10; f++){
-			System.out.println(f);		  
+			Sysreturn ttem.out.println(f);		  
 			pp.push(new Integer(f));
 		}
 		
