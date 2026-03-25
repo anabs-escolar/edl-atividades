@@ -6,5 +6,7 @@ public interface PilhaRubroNegra {
     public Object popR() throws PilhaVaziaExcecao;
     public Object popN() throws PilhaVaziaExcecao;
     public void grow();
-    public Object top() throws PilhaVaziaExcecao;
+    public void shrink();
+    public Object topR() throws PilhaVaziaExcecao;
+    public Object topN() throws PilhaVaziaExcecao;
 }
