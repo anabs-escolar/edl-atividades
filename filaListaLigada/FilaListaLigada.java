@@ -1,12 +1,17 @@
 
 public class FilaListaLigada implements Fila {
     
-    public class No {
+    private class No {
         private No next;
         private Object value;
 
+        public No(Object value){
+            this.value = value;
+            this.next = null;
+        }
+
         public Object getValue() {
-            return value
+            return value;
         }
         public void setValue(Object o){
             value = o;
@@ -20,33 +25,43 @@ public class FilaListaLigada implements Fila {
     }
 
     private No first, last;
-    private int n;
+    private int size, capacity;
 
-    public FilaListaLigada(int n) {
-        this->first = 0;
-        this->last = 0;
-        this->n = n;
+    public FilaListaLigada(int c) {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+        this.capacity = c;
     }
+
 
     public void enqueue(Object o) {
-        if (size() == n-1){
-            // encheu coleguinha
-        }
-        No new_node = new No;
-        new_node->value = o;
-        new_node->next = 0;
-        if (this->first == 0)
-            this->first == new_node;
+        if (capacity == size)
+            capacity = capacity*2;
+        
+        No new_node = new No(o);
+        if (first == null)
+            first = new_node;
         else 
-            this->last->next = new_node;
-        this->last = new_node;
+            last.setNext(new_node);
+        last = new_node;
+        size++;
     }
 
-    public void dequeue() {
-        if (this->first == 0) return;
-        No remove = this->first;
-        if (this->last == this->first)
-            this->last = 0;
-        this->first = this->first->next;
+    public Object dequeue() {
+        if (isEmpty())
+            throw new FilaVaziaExececao("Fila vazia");
+
+        Object remove = first.getValue();
+        if (last == first)
+            last = null;
+        first = first.getNext();
+        size--;
+        return remove;
     }
+
+    public int size(){ return size; }
+
+    public boolean isEmpty(){ return size == 0; }
+
 }

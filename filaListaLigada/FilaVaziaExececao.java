@@ -1,6 +1,6 @@
-public class FIlaVaziaExececao extends
+public class FilaVaziaExececao extends
     RuntimeException {
-        public FIlaVaziaExececao(String err){
+        public FilaVaziaExececao(String err){
             super(err);
     }
 }
